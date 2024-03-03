@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+<?php 
+if ($flag == 1){
+    foreach($users as $user){
+?>
+
+<div class="col-3 mt-4">
+                <div class="card" style="width: 15rem;">
+                    <img src="../../../public/img/21104.png" alt="..." class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title"><b><?php echo $user->name ?></b></h6>
+                        <p class="card-text"><?php echo $user->email ?></p>
+                        <span class=" text-danger"><b></b></span>
+      <form method="POST" action="../user/viewBlog?bearer=<?php echo $_GET['bearer']; ?>"> <button  type="submit" class="card-link btn btn-outline-warning border-0 mt-2 "  value="<?php echo $user->id; ?>" name="view" >View Blogs</button></form>
+       </div>
+                    </div>
+            </div>
+
+<?php
+    }
+}
+else{
+    echo "User Not Found";
+}
+?>
+</div>

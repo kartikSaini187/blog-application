@@ -1,0 +1,57 @@
+
+
+
+<?php
+if ($blogs->count()>0){
+    ?>
+     <form method="POST" action="../blog/readblog"> 
+      <div class="container-fluid mt-1 mb-3">
+        <div class="row justify-content-center">
+         <?php foreach($blogs as $blog){ ?>
+       <div class=" mt-4">
+          <div class="card w-100"  >
+          <img src="../public/img/<?php echo(rand(1,7));?>.jpeg" class="card-img-top" alt="..." style="width: 30em;" >
+         <div class="card-body">
+        <h5 class="card-title"><?php echo $blog->title;?></h5>
+        <p class="card-text"><?php echo $blog->details;?></p>
+        </div>
+        <div class="card-body">
+       </div>
+       </div>
+            </div>
+<?php }?>
+        </div>
+    </div>
+     </form>
+      </div>
+
+    <?php
+}
+?>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center mt-4">
+            <div class="">
+                <div class="box box-widget">
+<div class="box-footer box-comments">
+    <div class="box-comment"> 
+    <?php   foreach($comments as $comment){?>
+        <div class="comment-text"><span class="username"><mark><b><?php  echo  $comment->username ; ?></b></mark>  </span>:- <?php echo $comment->comment; ?> </div>
+        <?php }?>
+    </div>
+</div>
+
+<?php  foreach($blogs as $blog){ ?>
+<div class="box-footer mb-3">
+                  <form action="../blog/comment?bearer=<?php echo $_GET['bearer'];?>" method="post"> 
+                      <div class="img-push"> <input type="text" class="form-control input-sm" placeholder="  post comment" name="txtcomnt" > 
+                     <button type="submit" class="btn btn-primary form-control mt-1" value="<?php echo $blog->blogid; ?>" name="btncomnt">Comment</button>     
+                  </div>
+                  </form>
+                </div>
+            </div>
+            </div>
+        </div></div>
+</div>
+</div>
+<?php }

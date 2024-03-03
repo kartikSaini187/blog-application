@@ -1,0 +1,99 @@
+<?php
+if ($users->count() > 0) {
+    ?>
+   
+    <a href="#" class="nav-link" id="user" ><h4>Recent Users</h4></a>
+    <div id="userdiv">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="3">Users quantity: <?php echo $users->count(); ?></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <?php foreach ($users as $user) { ?>
+            <tr>
+                <td><?php echo $user->id; ?></td>
+                <td><?php echo $user->name; ?></td>
+                <td><?php echo $user->email; ?></td>
+                <td><?php echo $user->role; ?></td>
+                
+                <td>
+                <form method="POST" action="../dashboard/deleteuser?bearer" ><button name="deleteuser" class="btn btn-Warning" value="<?php echo $user->id?>" >Delete</button></form></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    </div>
+
+    <?php
+}
+if ($blogs->count()> 0) {
+    ?>
+    <a href="#" id="blog" class="nav-link" ><h4>Recent Blogs</h4></a>
+    <div id="blogdiv">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>BlogId</th>
+            <th>Title</th>
+            <th>Details</th>
+            
+            
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="3">Blogs quantity: <?php echo $blogs->count(); ?></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <?php foreach ($blogs as $blog) { ?>
+            <tr>
+                <td><?php echo $blog->blogid; ?></td>
+                <td><?php echo $blog->title; ?></td>
+                <td><?php echo $blog->details; ?></td>
+               
+                <td>
+                <form method="POST" action="../dashboard/editblog" ><button name="btnedit" class="btn btn-Warning" value="<?php echo $blog->blogid?>" >Edit</button></form></td>
+               
+                
+                <td>
+                <form method="POST" action="../dashboard/deleteblog" ><button name="deleteblog" class="btn btn-Warning" value="<?php echo $blog->blogid?>" >Delete</button></form></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    </div>
+    <?php
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

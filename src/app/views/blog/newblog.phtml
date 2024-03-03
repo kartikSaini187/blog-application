@@ -1,0 +1,28 @@
+<div class="bg-image" 
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+            <div class="container">
+<div class="mt-3">
+	<div class="row">
+	    <div class="col-md-8 col-md-offset-2">
+    		<h1>Create post</h1>
+    		<form action="../blog/postblog?bearer=<?php echo $_GET['bearer'];?>"  method="POST"> 
+    		    <div class="mb-3">
+           <label for="formFile" class="form-label">Title</label>
+           <input class="form-control" type="text" id="formFile" name="title">
+           </div>
+           <div class="form-group">
+    		        <label for="description">Description</label>
+    		        <textarea rows="5" class="form-control" name="details" ></textarea>
+    		    </div>
+    		    <div class="form-group mt-3" >
+    		        <button type="submit" class="btn btn-primary" name="btnpost">
+    		          POST BLOG
+    		        </button>
+    		    </div>
+    		</form>
+		</div>
+	</div>
+</div>
+</div>
+</div>
